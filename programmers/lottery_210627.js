@@ -47,7 +47,9 @@ function solution2(lottos, win_nums) {
     // switch case 가 아니라 배열 순서로,,, 대박이네
 
     let minCount = lottos.filter(v => win_nums.includes(v)).length;
+    // includes 를 사용할것을 생각 못했
     let zeroCount = lottos.filter(v => !v).length;
+    // !0 이 true 를 생각못함
 
     const maxCount = minCount + zeroCount;
 
