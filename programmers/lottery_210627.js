@@ -1,5 +1,5 @@
 /**
- * 회원가입페이지
+ * 프로그래머스 로또 (lv-1)
  *
  * @author SuHyun_Park
  * @param lottery
