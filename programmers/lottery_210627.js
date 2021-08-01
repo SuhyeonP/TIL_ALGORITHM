@@ -1,7 +1,7 @@
 /**
  * 프로그래머스 로또 (lv-1)
  *
- * @author SuHyun_Park
+ * @author Suhyeon_Park
  * @param lottery
  * @param https://programmers.co.kr/learn/courses/30/lessons/77484
  * @return
