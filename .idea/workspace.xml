@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b287cf6-8730-4d2d-a49a-ddeef1a6ff3e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/JupyterLab Extension/Jupyterlab.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/JupyterLab Extension/leftSide.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
