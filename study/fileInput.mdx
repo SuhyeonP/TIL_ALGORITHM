@@ -1,0 +1,34 @@
+# File Input use only js (without HTML)
+
+| Jupyterlab command 를 만들다가 command 를 등록하려니 HTML 없이 해야하는 상황이 발생.
+
+const inputElement = document.createElement('input');
+// input element 를 임의로 생성
+
+inputElement.setAttribute('type', 'file');
+// input type 을 file 로 생
+inputElement.id = 'upload-file-hidden';
+// id 를 선언
+inputElement.accept = '.yaml';
+// .yaml 형태의 파일만 업로드 가능
+inputElement.addEventListener('change', (event: any) => {
+    // FileList
+    const fileList = inputElement.files || event.target.files;
+    // File
+    const file = fileList[0];
+    const reader = new FileReader();
+    reader.onload = function (progressEvent) {
+        console.log('file content: ', progressEvent.target?.result);
+    };
+    reader.readAsText(file);
+});
+
+document.querySelector('.jp-NotebookPanel')?.append(inputElement);
+// 만든 element 를 붙인다.
+const selecting = document.querySelector('#upload-file-hidden');
+// 해당 element 를 누르게 만들기 위한 element 선택
+selecting?.dispatchEvent(new MouseEvent('click'));
+// element 를 선택하는 강제 event
+
+document.querySelector('.jp-NotebookPanel')?.removeChild(inputElement);
+// 추후 id가 꼬이는걸 막기 위해서 처리후 child 제거하기
