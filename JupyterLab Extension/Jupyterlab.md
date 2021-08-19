@@ -14,3 +14,5 @@
 * Notebook 파일 자체에 toolbar 이외에    
   cell-toolbar 또한 
 `app.docRegistry`에서 `addWidgetExtension`을 통해 노트북 내에서의 커스텀이 가능하다.
+  
+* Notebook labShell 에서 sidebar 에 대한 toggle 이 가능한 명령어가 존재 `collapseLeft();`
