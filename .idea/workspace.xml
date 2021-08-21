@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b287cf6-8730-4d2d-a49a-ddeef1a6ff3e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/programmers/openChat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +79,7 @@
       <workItem from="1628124687702" duration="1511000" />
       <workItem from="1629029015332" duration="683000" />
       <workItem from="1629161468187" duration="1218000" />
-      <workItem from="1629339806203" duration="2582000" />
+      <workItem from="1629339806203" duration="7716000" />
     </task>
     <servers />
   </component>
