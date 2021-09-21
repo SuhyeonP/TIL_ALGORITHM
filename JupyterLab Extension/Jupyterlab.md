@@ -38,3 +38,4 @@ Notebook의 metadata는 불가능하였다. 따라서 new Map으로 기존데이
   })
   ```
   ready 를 이용하여 수정이 가능했다..!
+* serverExtension 에서는 vuetify(필수 x )로 ui framework를 사용하여 vue 를 이용한 kernel 에서 화면을 보여줄수있다. 
