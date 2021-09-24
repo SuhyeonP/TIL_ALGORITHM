@@ -65,6 +65,7 @@ function solution2 (str) {
     for(let i = 0; i < 10; i++ ){
         let arr = answer.split(numbers[i]);
         answer = arr.join([i]);
+        // 몇번째자리의 join인지 i 번째에 들어가서 Join됨
     }
     return Number(answer);
 }
