@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="3b287cf6-8730-4d2d-a49a-ddeef1a6ff3e" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="3b287cf6-8730-4d2d-a49a-ddeef1a6ff3e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/js/fastify/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,6 +54,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JavaScript&#10;ECMAScript 6" />
+    <property name="javascript.nodejs.core.library.configured.version" value="15.10.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="15.14.9" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -56,6 +65,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -84,7 +94,7 @@
       <workItem from="1632011559618" duration="3115000" />
       <workItem from="1632193963153" duration="151000" />
       <workItem from="1632477231834" duration="67000" />
-      <workItem from="1633052553995" duration="1541000" />
+      <workItem from="1633052553995" duration="2976000" />
     </task>
     <servers />
   </component>
