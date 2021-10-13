@@ -1,0 +1,27 @@
+import React, { useEffect } from 'react';
+=====
+`
+useEffect(()=>{
+console.log('마운트 될 때만 실행');
+},[]);
+`
+=====
+`
+useEffect(() => {
+console.log('렌더링 될 때 마다 실행');
+})
+`
+=======
+
+`const mounted = useRef(false);
+useEffect(() => {
+    if (!mounted.current) {
+        mounted.current = true;
+    } else {
+        // else 동작
+    }
+}, [바뀌는값])`
+
+* 위의 사항의 경우 컴포넌트가 마운트될 때는 if문에서 실행하지않고 mounted 값만 바꿔주고 else 에서 배열안에 있는 값이 바뀌면 else 에서 코드가 실행된다.
+
+[참고](https://xiubindev.tistory.com/100)
