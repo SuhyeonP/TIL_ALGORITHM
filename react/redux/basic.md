@@ -67,8 +67,4 @@ const reducer = (state = initialState, action) => {
  }
 } 
 ```
-만약 새로운 객체를 리턴하지 않는다면 state 객체에서 age 는 25 가 되고 참조관가 되기 때문에 redux는 둘다 true라고 생각하여 데이터의 값을 변경하지 않는다.
-
-
-   
-
+만약 새로운 객체를 리턴하지 않는다면 state 객체에서 age 는 25 가 되고 참조관가 되기 때문에 redux는 둘다 true라고 생각하여 데이터의 값을 변경하지 않는다.   
