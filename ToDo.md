@@ -2,6 +2,7 @@
 * redux 사용한 코드( 정말 작아도 )
 * redux toolkit 까먹은 부분
 * redux vs Context vs Mobx
+* redux connect
 
 * Js ajax , Promise, async
 * js websocket
