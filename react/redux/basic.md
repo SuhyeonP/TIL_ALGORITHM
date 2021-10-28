@@ -68,3 +68,11 @@ const reducer = (state = initialState, action) => {
 } 
 ```
 만약 새로운 객체를 리턴하지 않는다면 state 객체에서 age 는 25 가 되고 참조관가 되기 때문에 redux는 둘다 true라고 생각하여 데이터의 값을 변경하지 않는다.   
+
+
+
+### Redux-persist   
+
+* 기존의 react-redux 의 경우 새로고침을하면 state 값이 init 값으로 돌아가는것을 볼수 있었다.   
+* [redux-persist](https://github.com/honeyhyoni/context-redux-mobx/tree/feature/redux-persist) 여기서 확인가능   
+> 이에 대응하는 방안을 localStorage, sessionStorage 에 저장해 reducer state 값을 저장하 새로고침 하여도 저장공간에 있는 데이터를 redux 에 불러오는 형식
