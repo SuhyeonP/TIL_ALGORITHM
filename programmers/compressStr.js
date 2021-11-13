@@ -67,3 +67,32 @@ console.log(solution(ex1))
 // 17
 
 
+const solution2 = (str) => {
+    let minLength = str.length;
+
+    for (let i = 0; i < str.length; i++) {
+        let num = i + 1;
+        let count = 1;
+        let newStr = '';
+
+        // num 을 붙이는 이유: 처음엔 한문자씩 확인 , 이후에 두문자씩, 세문자씩....
+        for (let j = 0; j < str.length; j += num) {
+            let basicSub = str.substring(j, j + num);
+            let compareSub = str.substring(j + num, j + (num  * 2));
+            if (basicSub === compareSub) {
+                count += 1;
+            } else if (count !== 1) {
+                newStr += (count + basicSub);
+                count = 1;
+            } else {
+                newStr += basicSub;
+                count = 1;
+            }
+            console.log(newStr, count)
+        }
+        minLength = Math.min(minLength, newStr.length)
+    }
+    return minLength
+}
+
+console.log(solution("abcabc"))
