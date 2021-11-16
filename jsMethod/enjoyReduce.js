@@ -22,6 +22,10 @@ function tree(nodes) {
             return;
         }
         newMap.set(ele[0], newMap.has(ele[0]) ? [...newMap.get(ele[0]),ele[1] ] : [ele[1]])
+        if(newMap.get(ele[0]).length > 2) {
+            error = 'E1';
+            return;
+        }
     });
 
     if(error !== '') {
