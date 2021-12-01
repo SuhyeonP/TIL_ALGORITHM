@@ -1,67 +1,92 @@
-function solution(m, n, gameBoard) {
-    let answer = 0;
+function solution(m, n, board) {
+    board = board.map(v => v.split(''));
 
-    const kind = ['R','M','A','F','C','J','N', 'T'];
-    const visited = ['r','h','a','f','c','j','n','t'];
+    while (true) {
+        let founded = [];
 
-    function checkSame(check, characterIdx) {
-        const temp = check.filter((ele) => ele === kind[characterIdx] || ele === visited[characterIdx]);
-        return temp.length === 4;
-    }
-
-    function checkKeepGoing (game) {
-        let checkCol = new Array(n).fill(true);
-
-        game.forEach((line, idx) => {
-            if(line.filter((tile) => tile !== 'X').length < 2) {
-                checkCol[idx] = false;
-            }
-        })
-        return checkCol.join('').includes('truetrue');
-    }
-
-    let board = [];
-
-    for (let i = 0; i < n; i++) {
-        board.push(gameBoard.map((ele) => ele[i]));
-    }
-
-    while(checkKeepGoing(board)){
-        for (let row = 0; row <= n - 2; row ++) {
-            for (let col = 0; col <= m - 2; col ++) {
-                const now = [board[row][col], board[row][col+1], board[row+1][col], board[row+1][col + 1]];
-                if(now.filter((ele) => ele === 'X').length > 0) {
-                    break;
+        // 찾기
+        for (let i = 1; i < m; i++) {
+            for (let j = 1; j < n; j++) {
+                if (board[i][j] && board[i][j] === board[i][j - 1] && board[i][j] === board[i - 1][j - 1] && board[i][j] === board[i - 1][j]) {
+                    founded.push([i, j]);
                 }
-                for (const characterIdx in kind) {
-                    const check = checkSame(now, characterIdx);
-                    if (check) {
-                        answer ++;
-                        board[col][row] = visited[characterIdx];
-                        board[col][row+1] = visited[characterIdx];
-                        board[col+1][row] = visited[characterIdx];
-                        board[col][row+1] = visited[characterIdx];
+            }
+        }
+
+        if (! founded.length) return [].concat(...board).filter(v => ! v).length;
+
+        // 부수기
+        founded.forEach(a => {
+            board[a[0]][a[1]] = 0;
+            board[a[0]][a[1] - 1] = 0;
+            board[a[0] - 1][a[1] - 1] = 0;
+            board[a[0] - 1][a[1]] = 0;
+        });
+
+        // 재정렬
+        for (let i = m - 1; i > 0; i--) {
+            if (! board[i].some(v => ! v)) continue;
+
+            for (let j = 0; j < n; j++) {
+                for (let k = i - 1; k >= 0 && ! board[i][j]; k--) {
+                    if (board[k][j]) {
+                        board[i][j] = board[k][j];
+                        board[k][j] = 0;
                         break;
                     }
                 }
             }
         }
-        console.log(board)
-
-        board.forEach((ele, idx) => {
-            const temp = ele.join('').replace(/[^ARMFCJNT]/g, '').split('');
-            board[idx] = temp.concat(new Array(m - temp.length).fill('X'));
-        })
-        console.log(board)
-
     }
-
-    return answer;
 }
 
-console.log(solution(4,5, ["CCBDE", "AAADE", "AAABF", "CCBBF"]))
+// console.log(solution(4,5, ["CCBDE", "AAADE", "AAABF", "CCBBF"]))
 
+console.log(solution(6,6, ["TTTANT", "RRFACC", "RRRFCC", "TRRRAA", "TTMMMF", "TMMTTJ"]))
 
 // console.log([false, true, false, false].some(item => item))
 
 // console.log([true,false,false,true,false].join('').includes('truetrue'))
+
+
+//function solution(m, n, board) {
+//     board = board.map((ele) => ele.split(''));
+//
+//     while(true) {
+//
+//         let founded = [];
+//
+//         for (let i = 1; i < m; i++) {
+//             for (let j = 1; j < n; j ++) {
+//                 const now = [board[i][j], board[i][j - 1], board[i-1][j], board[i-1][j-1]].sort();
+//                 if(now[0] === now[3] && now[0]) {
+//                     founded.push([i, j]);
+//                 }
+//             }
+//         }
+//
+//         if (!founded.length) {
+//             return [].concat(...board).filter(v=>!v).length;
+//         }
+//
+//         founded.forEach(tile => {
+//             board[tile[0]][tile[1]] = 0;
+//             board[tile[0]][tile[1]-1] = 0;
+//             board[tile[0]-1][tile[1]] = 0;
+//             board[tile[0]-1][tile[1]-1] = 0;
+//         });
+//
+//         for (let i = m - 1; i > 0; i--) {
+//             if (!board[i].some(v => !v)) continue;
+//             for(let j = 0; j < n; j++) {
+//                 for (let k = i - 1; k >= 0 && !board[i][j]; k--) {
+//                     if (board[k][j]) {
+//                         board[i][j] = board[k][j];
+//                         board[k][j] = 0;
+//                         break;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
