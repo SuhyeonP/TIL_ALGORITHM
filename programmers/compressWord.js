@@ -11,6 +11,7 @@ function solution(str) {
     }
 
     for(let i = 0, j, len = str.length; i < len; i = j) {
+        // i 가 j와 같아지는게 증감식
         let now = str[i];
         for(j = i + 1; j < len; j++) {
             let now2 = str[j];
