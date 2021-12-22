@@ -8,3 +8,5 @@ import type { RootState, AppDispatch } from '../../redux/store';
 export const useSelector: TypedUseSelectorHook<RootState> = reduxSelector;
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const useDispatch = () => reduxDispatch<AppDispatch>();
+
+// todo useInput 등 만들기
