@@ -4,7 +4,7 @@
 <br/>
 
 * 공부 다시 해야할거
-* tsconfig 중요한 의의
+* tsconfig 중요한 의의 , webpack config
 * react hook (useReducer)
 * react hook
 * react ref
