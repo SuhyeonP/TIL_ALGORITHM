@@ -11,3 +11,8 @@
 * React immutability
 * [oAuth](https://tecoble.techcourse.co.kr/post/2021-07-10-understanding-oauth/)
 * [mv* 기반](https://webclub.tistory.com/m/206)
+
+
+
+* js Array.from 완벽하게 파악하기
+* useReducer 로 만들어둔거 redux, mobx, redux-toolkit, react-query, recoil 로 변경하는거 해보기
