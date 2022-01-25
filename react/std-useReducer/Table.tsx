@@ -1,18 +1,30 @@
-import React from 'react';
+import * as React from 'react';
+import { Dispatch, useMemo } from "react";
+import Tr from "./Tr";
 
 interface IProps {
-    tableData: string[][],
-    dispatch: any;
+    tableData: string[][];
+    dispatch: Dispatch<any>;
+    onClick: () => void;
 }
 
 const Table = (props: IProps) => {
-    const { tableData, dispatch } = props;
-    const array = 0;
-
     return (
         <table>
-            <tbody>
-            </tbody>
+            {Array.from({length: 3}).map((ele, i) => (
+                useMemo(
+                    () => (
+                        <Tr
+                            key={i}
+                            dispatch={props.dispatch}
+                            rowIndex={i}
+                            rowData={props.tableData[i]}
+                        />
+                    ), [props.tableData[i]]
+                )
+            ))}
         </table>
     )
 }
+
+export default Table;
