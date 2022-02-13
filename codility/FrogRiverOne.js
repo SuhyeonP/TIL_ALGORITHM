@@ -3,7 +3,7 @@ function solution(A, X) {
     const set = new Set();
 
     for(let i = 0; i < A.length; i++) {
-        set.add(A[i]);^
+        set.add(A[i]);
         if(set.size === X) {
             return i;
         }
