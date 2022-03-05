@@ -18,7 +18,7 @@ const solution = (ids, reports, k) => {
     console.log(report_list)
 
     for (const key in report_list) {
-    .        if (report_list[key].length >= k) {
+            if (report_list[key].length >= k) {
             report_list[key].forEach((user) => {
                 answer[ids.indexOf(user)] += 1;
             })
