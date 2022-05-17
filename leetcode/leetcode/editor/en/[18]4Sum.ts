@@ -54,6 +54,8 @@ function fourSum(nums: number[], target: number): number[][] {
     for (let i = 0; i < len  - 3; i ++) {
         if (i > 0 && nums[i] === nums[i - 1]) continue;
         if (nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) break;
+
+        // check this if need?
         if (nums[i] + nums[len - 3] + nums[len - 2] + nums[len - 1] < target) continue;
 
         const next = i + 1;
@@ -61,6 +63,8 @@ function fourSum(nums: number[], target: number): number[][] {
         for (let j = next; j < len - 2; j ++) {
             if (j > next && nums[j] === nums[j - 1]) continue;
             if (nums[i] + nums[j] + nums[j + 1] + nums[j + 2] > target) break;
+
+            // check this if need?
             if (nums[i] + nums[j] + nums[len - 2] + nums[len -1] < target) continue;
 
             goLeft = len  - 1;
