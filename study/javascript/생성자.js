@@ -18,3 +18,22 @@ const banana = new Food('banana');
 const apple = new Food('apple');
 const peach = new Food('peach');
 banana.smell() // banana smell;
+// 위 그대로 한다면 banana.smell !== apple.smell 그래서 this 를 활용해 본다면
+
+
+function smell() {
+    console.log(this.name + ' Smell');
+}
+
+function CheckFood(taste) {
+    this.name = taste;
+    this.smell = smell;
+}
+
+const pineApple = new CheckFood('pineapple');
+const orange = new CheckFood('orange');
+
+pineApple.smell()
+orange.smell()
+
+console.log(pineApple.smell === orange.smell) // true
