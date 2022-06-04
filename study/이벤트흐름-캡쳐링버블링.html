@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button">btn</button>
+<script>
+    window.addEventListener('click', function () {
+        console.log('first , go to target', 1)
+    }, true)
+    // false 가 디폴트이고 여기 3번째 요소값은 캡쳐링 단계때 실행될것인지 여부
+    document.addEventListener('click', function () {
+        console.log(2)
+    }, true)
+    document.documentElement.addEventListener('click', function () {
+        console.log(3)
+    }, true)
+    document.body.addEventListener('click', function (e) {
+        e.stopPropagation()
+        console.log(4)
+    }, true)
+    document.querySelector('button').addEventListener('click', function () {
+        console.log(5)
+    }, true)
+    document.querySelector('button').addEventListener('click', function () {
+        console.log('here is target')
+    })
+    document.body.addEventListener('click', function () {
+        console.log('target event - go path(지나가는길)')
+    })
+    window.addEventListener('click', function () {
+        console.log('target event - go path(지나가는길)')
+    })
+    document.addEventListener('click', function () {
+        console.log('target event - go path(지나가는길)')
+    })
+    document.documentElement.addEventListener('click', function () {
+        console.log('target event - go path(지나가는길)')
+    })
+</script>
+</body>
+</html>
