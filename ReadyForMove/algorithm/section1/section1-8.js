@@ -5,6 +5,34 @@
 // 아홉 난쟁이의 키가 주어졌을 때, 백설공주를 도와 일곱 난쟁이를 찾는 프로그램을 작성하시 오.
 
 // 몰겟다
-function solution(a, b, c, d, e, f, g, h, i) {
+function solution(members) {
+    const answer = members;
 
+    const sum = answer.reduce((before, now) => before + now, 0);
+
+    for (let i = 0; i < 8; i++) {
+        for (let j = i + 1; j < 9; j++) {
+            if(sum - (answer[i] + answer[j]) === 100) {
+                // j 를 먼저 하는 이유는 뒤에서 먼저 슾플 해야 앞에 인덱스에 영향을 안미친
+                answer.splice(j, 1)
+                answer.splice(i, 1)
+                return answer;
+            }
+        }
+    }
+    return undefined;
+}
+
+function solution2(arr){
+    let answer=arr;
+    let sum=answer.reduce((a, b)=>a+b, 0);
+    for(let i=0; i<8; i++){
+        for(let j=i+1; j<9; j++){
+            if((sum-(answer[i]+answer[j]))==100){
+                answer.splice(j, 1);
+                answer.splice(i, 1);
+            }
+        }
+    }
+    return answer;
 }
