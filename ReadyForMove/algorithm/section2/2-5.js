@@ -14,10 +14,8 @@ function solution2(scores) {
 
     for(let i = 0; i < scores.length; i++) {
         for (let j = 0; j < scores.length; j++) {
-            if(i !== j) {
-                if(scores[i] < scores[j]) {
-                    answer[i]++;
-                }
+            if(scores[i] < scores[j]) {
+                answer[i]++;
             }
         }
     }
