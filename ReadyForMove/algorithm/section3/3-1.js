@@ -39,8 +39,12 @@ function solutionSub(str) {
     return 'YES'
 }
 
+function solution2(str) {
+    const copy = str.toUpperCase().split('').reverse().join('');
+    return copy === str.toUpperCase() ? 'YES' : 'NO';
+}
+
 console.log(solutionSub('godadog'))
 
 console.log(solution('gooG'))
 console.log(solution('godoG'))
-
