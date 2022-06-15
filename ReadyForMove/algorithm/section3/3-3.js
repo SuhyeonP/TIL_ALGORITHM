@@ -11,6 +11,16 @@ function solution(str) {
     return parseInt(get, 10);
 }
 
+function solution2(str) {
+    let answer = '';
+
+    for (let s of str) {
+        if(!isNaN(s)) answer += s;
+    }
+
+    return parseInt(answer)
+}
+
 console.log(solution('tge0a1h205er'))
 console.log(solution('g0en2T0s8eSoft'))
 
