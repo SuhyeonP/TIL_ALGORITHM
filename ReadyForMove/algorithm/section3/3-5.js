@@ -25,10 +25,11 @@
 //     return answer;
 // }
 
-function soluiton2(str) {
+function solution2(str) {
     let answer = '';
     let cnt = 1;
-    str = str + '';
+    str = str + ' ';
+    // 마지막 공백을 추가함으로써 마지막 까지 돈다.
 
     for (let i = 0; i < str.length - 1; i ++) {
         if(str[i] === str[i+1]) cnt ++;
@@ -41,4 +42,5 @@ function soluiton2(str) {
     return answer;
 }
 
-console.log(solution('KKHSSSSSSSE'))
+console.log(solution2('KKHSSSSSSSE'))
+
