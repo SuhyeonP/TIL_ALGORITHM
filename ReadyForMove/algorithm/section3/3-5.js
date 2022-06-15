@@ -5,22 +5,39 @@
 // KKHSSSSSSSE
 // K2HS7E
 
-function solution(str) {
-    let answer = '';
-    const map = new Map();
-    const set = new Set();
+// 틀림 뒤에 같은 문자 나오면 바로 틀림
+// function solution(str) {
+//     let answer = '';
+//     const map = new Map();
+//     const set = new Set();
+//
+//     for(let s of str) {
+//         map.set(s, map.has(s) ? map.get(s) + 1 : 1);
+//         set.add(s);
+//     }
+//     for(let value of set) {
+//         answer += value;
+//         if(map.get(value) > 1) {
+//             answer += map.get(value);
+//         }
+//     }
+//
+//     return answer;
+// }
 
-    for(let s of str) {
-        map.set(s, map.has(s) ? map.get(s) + 1 : 1);
-        set.add(s);
-    }
-    for(let value of set) {
-        answer += value;
-        if(map.get(value) > 1) {
-            answer += map.get(value);
+function soluiton2(str) {
+    let answer = '';
+    let cnt = 1;
+    str = str + '';
+
+    for (let i = 0; i < str.length - 1; i ++) {
+        if(str[i] === str[i+1]) cnt ++;
+        else {
+            answer += str[i];
+            if(cnt > 1) answer += cnt.toString();
+            cnt = 1;
         }
     }
-
     return answer;
 }
 
