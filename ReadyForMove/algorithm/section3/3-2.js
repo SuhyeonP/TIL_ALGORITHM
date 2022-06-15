@@ -21,9 +21,18 @@ function solution(str) {
     return 'YES';
 }
 
+function solution2(str) {
+    const copy = str.toLowerCase().replace(/[^a-z]/g, '');
+    const reverse = copy.split('').reverse().join('');
+
+    return copy === reverse ? 'YES' : 'NO';
+}
+
 
 const a = 'found7, time: study; Yduts; emit, 7Dnuof';
 const b = 'found7, time: stdy; Yduts; emit, 7Dnuof';
 
 console.log(solution(a))
 console.log(solution(b))
+console.log(solution2(a))
+console.log(solution2(b))
