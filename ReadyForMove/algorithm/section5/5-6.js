@@ -24,4 +24,6 @@ function solution(votes) {
     return answer;
 }
 
+
+// 해설과 동일
 console.log(solution('BACBACCACCBDEDE'))

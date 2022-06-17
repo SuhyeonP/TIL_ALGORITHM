@@ -19,8 +19,6 @@ function solution(s1, s2) {
         map1.set(c1[idx], map1.has(c1[idx]) ? map1.get(c1[idx]) + 1 : 1);
         map2.set(c2[idx], map2.has(c2[idx]) ? map2.get(c2[idx]) + 1 : 1);
     }
-    console.log(map1)
-    console.log(map2)
 
     for (let [a, b] of map1) {
         if (map2.get(a) !== b) return 'NO'
@@ -31,4 +29,21 @@ function solution(s1, s2) {
 
 console.log(solution('AbaAeCe','baeeACA'))
 console.log(solution('abaCC','Caaab'))
+console.log(solution2('AbaAeCe','baeeACA'))
+console.log(solution2('abaCC','Caaab'))
 
+function solution2(s1, s2) {
+    if(s1.length !== s2.length) return 'NO';
+    const map = new Map();
+
+    for(let s of s1) {
+        map.set(s, map.has(s) ? map.get(s) + 1 : 1);
+    }
+
+    for (let s of s2) {
+        if(!map.has(s) || map.get(s) === 0) return 'NO';
+        else map.set(s, map.get(s) - 1);
+    }
+
+    return 'YES';
+}

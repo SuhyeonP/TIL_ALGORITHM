@@ -8,7 +8,7 @@ function solution(n, price) {
     let answer = -Infinity;
     const length = price.length;
 
-    for(let i = 0; i < length - 2; i++) {
+    for(let i = 0; i < length - (n - 1); i++) {
         const sum = price.slice(i, i + 3).reduce((before, now) => before + now, 0);
         if(sum > answer) {
             answer = sum;
@@ -19,3 +19,21 @@ function solution(n, price) {
 }
 
 console.log(solution(3, [12, 15, 11, 20, 25, 10, 20, 19, 13, 15]))
+console.log(solution2(3, [12, 15, 11, 20, 25, 10, 20, 19, 13, 15]))
+
+function solution2(value, arr) {
+    let sum = 0;
+    for(let i = 0; i < value; i++) {
+        sum += arr[i];
+    }
+
+    let answer = sum;
+
+    for(let i = value; i < arr.length; i++) {
+        sum += (arr[i] - arr[i - value]);
+
+        answer = Math.max(sum, answer);
+    }
+
+    return answer;
+}

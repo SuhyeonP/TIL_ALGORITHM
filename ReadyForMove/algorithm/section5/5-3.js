@@ -24,3 +24,28 @@ function solution(n, nums) {
 }
 
 console.log(solution(6, [1,2,1,3,1,1,1,2]))
+console.log(solution2(6, [1,2,1,3,1,1,1,2]))
+
+
+function solution2(value, arr) {
+    let answer = 0;
+    let sum = 0;
+    let lt = 0;
+
+    for(let rt = 0; rt < arr.length; rt++) {
+        sum += arr[rt];
+
+        if (sum === value) {
+            answer ++;
+        }
+        while (sum >= value) {
+            sum -= arr[lt++];
+            // 여기서 값 계산하니까 중복 안들어간다
+            if(sum === value) {
+                answer++;
+            }
+        }
+    }
+
+    return answer;
+}

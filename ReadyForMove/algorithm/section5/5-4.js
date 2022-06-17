@@ -33,3 +33,25 @@ function solution(n, nums) {
 }
 
 console.log(solution(5, [1,3,1,2,3]))
+console.log(solution2(5, [1,3,1,2,3]))
+
+
+function solution2(value, nums) {
+    let answer = 0;
+
+    let sum = 0;
+    let lt = 0;
+
+    for (let rt = 0; rt < nums.length; rt++) {
+        sum += nums[rt];
+
+        while (sum > value) {
+            sum -= nums[lt ++];
+        }
+
+        // lt부터 rt까지 부분수열의 개수가 rt - lt  + 1이다.
+        answer += (rt - lt + 1)
+    }
+
+    return answer;
+}

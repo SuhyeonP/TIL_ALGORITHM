@@ -23,3 +23,28 @@ function solutionSub(arr) {
 
 console.log(solution([[1,3,9,5,2],[3,2,5,7,8]]))
 console.log(solutionSub([[1,3,9,5,2],[3,2,5,7,8]]))
+
+
+console.log(solution2([1,3,9,5,2],[3,2,5,7,8]));
+
+function solution2(arr1, arr2) {
+    const answer = [];
+
+    arr1.sort((a, b) => a - b);
+    arr2.sort((a, b) => a - b);
+
+    let p1 = 0;
+    let p2 = 0;
+
+    while (p1 < arr1.length && p2 < arr2.length) {
+        const v1 = arr1[p1];
+        const v2 = arr2[p2];
+        if (v1 === v2) {
+            answer.push(arr1[p1++]);
+            p2++;
+        } else if (v1 < v2) p1++;
+        else p2++;
+    }
+
+    return answer;
+}
