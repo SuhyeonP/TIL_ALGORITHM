@@ -1,24 +1,19 @@
 function solution(questions, time) {
-    const totalScore = questions.reduce((a, b) => a + b[0], 0);
-    console.log(totalScore)
-    const totalTime = questions.reduce((a, b) => a + b[1], 0);
-    console.log(totalTime)
     let answer = 0;
 
     function DFS(idx, sum, going) {
-        if(idx === questions.length) {
+        if(going > time) {
             return;
         }
-        if(going <= time) {
-            console.log(idx, going, sum)
-            answer = Math.max(answer, sum)
+        if(idx === questions.length) {
+            answer = Math.max(answer, sum);
         } else {
             DFS(idx + 1, sum, going);
-            DFS(idx + 1, sum - questions[idx][0], going - questions[idx][1]);
+            DFS(idx + 1, sum + questions[idx][0], going + questions[idx][1])
         }
     }
 
-    DFS(0, totalScore, totalTime)
+    DFS(0, 0, 0)
     return answer;
 }
 
