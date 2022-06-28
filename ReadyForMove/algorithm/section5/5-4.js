@@ -55,3 +55,24 @@ function solution2(value, nums) {
 
     return answer;
 }
+console.log(solR(5, [1,3,1,2,3]))
+
+
+function solR(value, arr) {
+    const size = arr.length;
+    let answer = 0;
+    let lt = 0;
+    let sum = 0;
+
+    for(let rt = 0; rt < size; rt++) {
+        sum += arr[rt];
+
+        while(sum > value) {
+            sum -= arr[lt++];
+        }
+
+        answer += (rt - lt + 1)
+    }
+
+    return answer;
+}

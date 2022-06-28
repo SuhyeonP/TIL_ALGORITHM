@@ -59,3 +59,55 @@ function solution2(m, product) {
     return answer;
 }
 console.log(solution(28, [[6, 6], [2, 2], [4, 3], [4, 5], [10, 3]]))
+console.log(solutionRR(28, [[6, 6], [2, 2], [4, 3], [4, 5], [10, 3]]))
+console.log(solutionRetry(28, [[6, 6], [2, 2], [4, 3], [4, 5], [10, 3]]))
+
+function solutionRR(money, price) {
+    const size = price.length;
+    let answer = 0;
+
+    price.sort((a, b) => (a[0] + a[1]) - (b[0] + b[1]));
+
+    for(let i = 0; i < size; i++) {
+        const [things, ship] = price[i];
+        let amount = money - (things/2 + ship);
+        let cnt = 1;
+
+        for(let j = 0; j < size; j++) {
+            if(i === j) continue;
+            if(price[j][0] + price[j][1] <= amount) {
+                amount -= price[j][0] + price[j][1];
+                cnt++;
+            } else break;
+        }
+        answer = Math.max(answer, cnt);
+    }
+
+    return answer;
+}
+
+function solutionRetry(price, presents) {
+    let answer = 0;
+    const size = presents.length;
+
+    presents.sort((a, b) => (a[0] + a[0]) - (b[0] + b[1]));
+
+    for(let i = 0; i < size; i++) {
+        let money = price - (presents[i][0] / 2 + presents[i][1]);
+        let cnt = 1;
+
+        for(let j = 0; j < size; j++) {
+            if(i === j) continue;
+            else {
+                const nowPrice = presents[j][0] + presents[j][1];
+                if (nowPrice <= money) {
+                    money -= nowPrice;
+                    cnt++
+                } else break;
+            }
+        }
+        answer = Math.max(cnt, answer);
+    }
+
+    return answer;
+}

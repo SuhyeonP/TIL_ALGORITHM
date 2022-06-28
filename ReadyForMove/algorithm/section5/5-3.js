@@ -49,3 +49,23 @@ function solution2(value, arr) {
 
     return answer;
 }
+console.log(solR(6, [1,2,1,3,1,1,1,2]))
+
+function solR(amount, arr) {
+    const size = arr.length;
+    let lt = 0;
+    let answer = 0;
+    let sum = 0;
+    for (let rt = 0; rt < size; rt++) {
+        sum += arr[rt];
+
+        if (sum === amount) answer ++;
+
+        while (sum >= amount) {
+            sum -= arr[lt++];
+            if(sum === amount) answer++;
+        }
+    }
+
+    return answer;
+}

@@ -61,3 +61,20 @@ function solution2(pick, cards) {
 //     answer=a[k-1];
 //     return answer;
 // }
+console.log(solutionR(3, [13, 15, 34, 23, 45, 65, 33, 11, 26, 42]))
+
+
+function solutionR(count, cards) {
+    const size = cards.length;
+    const bucket = new Set();
+
+    for(let i = 0; i < size; i++) {
+        for(let j = i + 1; j < size; j++) {
+            for(let k = j + 1; k < size; k++) {
+                bucket.add(cards[i] + cards[j] + cards[k]);
+            }
+        }
+    }
+
+    return [...bucket].sort((a, b) => b - a)[count - 1]
+}

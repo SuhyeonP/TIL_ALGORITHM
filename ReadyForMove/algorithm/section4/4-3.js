@@ -124,3 +124,61 @@ function solution3(students) {
 }
 
 console.log(solution3([[3, 4, 1, 2], [4, 3, 2, 1], [3, 1, 4, 2]]))
+console.log(solutionRR([[3, 4, 1, 2], [4, 3, 2, 1], [3, 1, 4, 2]]))
+
+function solutionRR(students) {
+    let answer = 0;
+    const testCount = students.length;
+    const studentsCount = students[0].length;
+    for(let i = 1; i <= studentsCount; i++) {
+        for(let j = 1; j <= studentsCount; j++) {
+            // i & j 는 학생번호
+            if(i === j) continue;
+            let cnt = 0;
+
+            for(let k = 0; k < testCount; k++) {
+                // k번째 시험
+                let mento = 0;
+                let menti = 0;
+
+                for(let s = 0; s < studentsCount; s++) {
+                    // s는 등수
+                    if(students[k][s] === i) mento = s;
+                    if(students[k][s] === j) menti = s;
+                }
+                if(mento > menti) cnt ++; // 해당 시험에서는 멘토가 될수 있어서 더함
+            }
+            if(testCount === cnt) answer ++; // 모든 시험횟수랑 멘토가능 횟수랑 똑같아야함
+        }
+    }
+
+    return answer;
+}
+
+console.log(solution([[3, 4, 1, 2], [4, 3, 2, 1], [3, 1, 4, 2]]))
+
+function solutionRRRRR(students) {
+    let answer = 0;
+    const studentCount = students[0].length;
+    const testTime = students.length;
+
+    for(let mento = 1; mento <= studentCount; mento++) {
+        for(let menti = 1; menti <= studentCount; menti++) {
+            let count = 0;
+
+            for(let test = 0; test < testTime; test++) {
+                let std1 = 0;
+                let std2 = 0;
+
+                for(let order = 0; order < studentCount; order++) {
+                    if(students[test][order] === mento) std1 = order;
+                    if(students[test][order] === menti) std2 = order;
+                }
+                if(std1 < std2) count ++;
+            }
+
+            if(count === testTime) answer ++;
+        }
+    }
+    return answer;
+}

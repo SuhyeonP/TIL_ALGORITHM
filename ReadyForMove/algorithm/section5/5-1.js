@@ -39,3 +39,23 @@ function solution2(arr1, arr2) {
 
 console.log(solution([[1,3,5],[2,3,6,7,9]]))
 console.log(solution2([1,3,5],[2,3,6,7,9]))
+console.log(solutionR([1,3,5],[2,3,6,7,9]))
+
+function solutionR(arr1, arr2) {
+    const answer = [];
+
+    const s1 = arr1.length;
+    const s2 = arr2.length;
+
+    let i = 0;
+    let j = 0;
+
+    while (i !== s1 && j !== s2) {
+        if (arr1[i] > arr2[j]) answer.push(arr2[j++]);
+        else answer.push(arr1[i++]);
+    }
+    while (i < s1) answer.push(arr1[i++]);
+    while (j < s2) answer.push(arr2[j++]);
+
+    return answer;
+}

@@ -37,3 +37,23 @@ function solution2(value, arr) {
 
     return answer;
 }
+console.log(solR(3, [12, 15, 11, 20, 25, 10, 20, 19, 13, 15]))
+
+
+function solR(time, price) {
+    let sum = 0;
+
+    for(let i = 0; i < time; i++) {
+        sum += price[i];
+    }
+
+    let answer = sum;
+
+    for(let i = time; i < price.length; i++) {
+        sum += (price[i] - price[i - time]);
+
+        answer = Math.max(sum, answer);
+    }
+
+    return answer;
+}

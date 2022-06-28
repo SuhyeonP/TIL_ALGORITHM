@@ -13,3 +13,17 @@ function solution(A) {
 }
 
 console.log(solution([1,3,1]))
+
+function solution2(A) {
+    // write your code in JavaScript (Node.js 8.9.4)
+    const check = Array.from({length: A.length}, (ele, idx) => idx + 1);
+    let answer = 1;
+
+    A.sort((a, b) => a - b);
+
+    for (let i = 0; i < A.length; i++) {
+        if(A[i] !== check[i]) return 0;
+    }
+
+    return answer;
+}
