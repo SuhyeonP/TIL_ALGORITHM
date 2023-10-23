@@ -10,38 +10,34 @@
 // 수업계획서상의 각 과목은 무조건 이수된다고 가정합니다.
 // 필수과목순서가 주어지면 현수가 짠 N개의 수업설계가 잘된 것이면 “YES",
 // 잘못된 것이면 ”NO“를 출력하는 프로그램을 작성하세요.
+// 필수과목 없어도 잘못설계된거임
 
-//CBA CBDAGE  - YES
-function solution(p, all) {
-    const c = all.split('');
-    let answer = 'YES';
-    const queue = [];
+// ▣ 입력설명
+// 첫 줄에 한 줄에 필수과목의 순서가 주어집니다. 모든 과목은 영문 대문자입니다.
+// 두 번 째 줄부터 현수가 짠 수업설계가 주어집니다.(수업설계의 길이는 30이하이다)
+// ▣ 출력설명
+// 수업설계가 잘된 것이면 “YES", 잘못된 것이면 ”NO“를 출력합니다.
+// ▣ 입력예제 1
+// CBA
+// CBDAGE
+// ▣ 출력예제 1
+// YES
 
-    while(c.length) {
-        const cc = c.shift();
-        if (p.indexOf(cc) !== -1) {
-            queue.push(cc);
-        }
-        if(queue.length === p.length) break;
-    }
 
-    if(queue.length !== p.length) return 'NO';
 
-    return queue.join('') === p ? answer : 'NO'
-}
+function solution(rule, classes) {
+    const queue = rule.split('');
 
-console.log(solution('CBA','CBDAGE'))
-console.log(solution2('CBA','CBDAGE'))
-console.log(solution2('CAB','CBDAGE'))
-
-function solution2(p, cl) {
-    const queue = p.split('');
-
-    for(let c of cl) {
-        if(queue.includes(c)) {
-            if(queue.shift() !== c) return 'NO';
+    for(let c of classes) {
+        if (queue.includes(c)) {
+           if(c !== queue.shift()) return 'NO';
         }
     }
 
-    return queue.length === 0 ? 'YES' : 'NO'
+    if(queue.length > 0) return 'NO';
+    return 'YES';
 }
+
+console.log(solution('CBA', 'CBDAGE'))
+console.log(solution('CBA', 'CADBGE'))
+console.log(solution('CBA', 'DFHCEW'))
