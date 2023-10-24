@@ -18,6 +18,8 @@ function solution2(arr) {
 
 console.log(solution2([1, 2, 3, -3, -2, 5, 6, -6]))
 console.log(solution2sub([1, 2, 3, -3, -2, 5, 6, -6]))
+
+// 정렬 기법 안써도 된다면
 function solution2sub(arr) {
     const answer = [];
 
