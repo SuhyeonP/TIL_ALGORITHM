@@ -10,6 +10,7 @@ function solution(n) {
             for(let i = 1; i <= n; i++) {
                 if(temp[i] === 1) tmp+= i + ' ';
             }
+            // trim 문자열 양 끝의 공백을 제거하고 원본 문자열을 수정하지 않고 새로운 문자열을 반환
             answer.push(tmp.trim());
         } else {
             temp[v] = 1;

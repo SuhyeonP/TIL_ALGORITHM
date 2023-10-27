@@ -38,3 +38,4 @@ function solution2(weight, dogs) {
     DFS(0,0)
     return answer;
 }
+console.log(solution(259, [81,58,42,33,61]))
